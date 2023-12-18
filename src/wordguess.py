@@ -6,3 +6,12 @@ random_word = random.choice(words)
 
 print(random_word)
 
+if random_word in animals:
+    print("Hint: The word is an animal.")
+elif random_word in foods:
+    print("Hint: The word is a food item.")
+elif random_word in countries:
+    print("Hint: The word is a country.")
+else:
+    print("Hint: The word is a sport.")
+
