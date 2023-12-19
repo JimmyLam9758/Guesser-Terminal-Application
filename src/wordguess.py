@@ -1,10 +1,14 @@
+# import random module
 import random
 # importing word list from another file
-from words_list import words, animals, foods, countries
+from words_list import words, animals, foods, countries, sports
 # import functions from functions file
-from functions import create_menu
+from functions import create_menu, view_wordlist
 # choosing a randon word from our list
 random_word = random.choice(words)
+# naming file
+file_name = "words_list.py"
+
 # Input for user to enter their name
 name = input("Enter your name: ").title()
 
@@ -19,7 +23,7 @@ while users_choice != "4":
     if (users_choice == "1"):
         print("start game")
     elif (users_choice == "2"):
-        print("view word list")
+        view_wordlist()
     elif (users_choice == "3"):
         print("view previous scores")
     elif (users_choice == "4"):
