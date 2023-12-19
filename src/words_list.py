@@ -3,8 +3,6 @@ animals = ["fish", "bird", "giraffe", "penguin", "whale", "shark", "sheep", "cra
 # list of countries
 countries = ["france", "america", "china", "spain", "australia", "italy", "germany", "japan", "korea", "canada", "singapore", "greece", "egypt", "india", "brazil", "portugal", "afghanistan", "colombia", "malaysia", "peru", "norway", "finland", "sweden", "thailand", "philippines"]
 # list of foods
-foods = ["burger", "sandwich", "apple", "eggs", "bacon", "sausage", "pizza", "banana", "steak", "spaghetti", "chips", "strawberry", "curry", "burrito", "cake", "sushi", "potato", "carrot", "cucumber", "lobster", "oysters", "muffin", "hashbrown", "rice", "soup", "beans"]
+foods = ["burger", "sandwich", "apple", "eggs", "bacon", "sausage", "pizza", "banana", "steak", "spaghetti", "chips", "strawberry", "curry", "burrito", "cake", "sushi", "potato", "carrot", "cucumber", "lobster", "oysters", "muffin", "hashbrown", "rice", "soup", "beans", "bread", "tacos", "mushroom"]
 # list of sports
 sports = ["golf", "fishing", "soccer", "football", "basketball", "hockey", "track", "volleyball", "swimming", "rugby", "tennis", "surfing", "skiing", "cheerleading", "lacrosse", "rowing", "boxing"]
-# grouping all lists
-words = animals + countries + foods + sports
