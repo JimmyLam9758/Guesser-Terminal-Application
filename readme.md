@@ -6,7 +6,7 @@
 
 ## Link to my recording
 
-[My Recording Link](http://youtube.com)
+[My Recording](http://youtube.com)
 
 ## Overview
 
@@ -21,3 +21,5 @@ hello
 ## Instructions on how to run program
 
 ## Tests
+
+## Project Management
