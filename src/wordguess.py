@@ -45,7 +45,7 @@ def game_start():
                     if start_again == "Y":
                         game_start()
                     elif start_again == "N":
-                        print(f"Thanks for playing {name}! Come back soon!")
+                        print(f"\nThanks for playing {name}! Come back soon!")
                         quit()
                     else:
                         print("\nInvalid Input. Back to main menu.")
@@ -61,43 +61,49 @@ def game_start():
         # User input for guess
         guess = input("\n\nEnter a letter: ").lower()
 
-        # Guess history
-        if guess in set_of_guesses:
-            print("\nYou have already guessed this letter.")
-            print(f"\nGuesses so far: {set_of_guesses}")
-        else:
-            set_of_guesses.add(guess)
-            print(f"\nGuesses so far: {set_of_guesses}")
-
         # Make sure guess is 1 only character long and in the english alphabet.
         if len(guess) != 1 or not guess.isalpha():
             print("\nInvalid Input. Please enter a single letter.")
             continue
 
-        # add guessed letter to their guesses
         users_guess += guess
 
-        # if incorrect guess, lower total guess count, print remaining guesses.
-        if guess not in random_word:
+        # Guess history
+        # if incorrect guess and not in guess history, lower total guess count, print remaining guesses.
+        if guess not in random_word and guess in set_of_guesses:
+            print("\nYou have already guessed this letter.")
+            print(f"You have {guesses} guesses remaining.")
+            print(f"Guesses so far: {set_of_guesses}")
+        elif guess in random_word and guess in set_of_guesses:
+            print("\nYou have already guessed this letter.")
+            print(f"You have {guesses} guesses remaining.")
+            print(f"Guesses so far: {set_of_guesses}")
+        elif guess in random_word and guess not in set_of_guesses:
+            set_of_guesses.add(guess)
+            print(f"You have {guesses} guesses remaining.")
+            print(f"Guesses so far: {set_of_guesses}")
+        else:
+            set_of_guesses.add(guess)
             guesses -= 1
-            print(f"\nYou have {guesses} guesses remaining.\n")
-            
-            # At certain amount of guesses print hint
-            if guesses == 4:
-                    if random_word in animals:
-                        print("\nHint: The word is an animal.\n")
-                    elif random_word in foods:
-                        print("\nHint: The word is a food item.\n")
-                    elif random_word in countries:
-                        print("\nHint: The word is a country.\n")
-                    else:
-                        print("\nHint: The word is a sport.\n")
+            print(f"You have {guesses} guesses remaining.")
+            print(f"Guesses so far: {set_of_guesses}")
 
-            # Run out of guesses, game over.
-            if guesses == 0:
-                print(f"\nBad luck, You have run out of guesses. The word was {random_word}.")
-                restart()
-                break
+        # At certain amount of guesses print hint
+        if guesses == 4:
+                if random_word in animals:
+                    print("\nHint: The word is an animal.\n")
+                elif random_word in foods:
+                    print("\nHint: The word is a food item.\n")
+                elif random_word in countries:
+                    print("\nHint: The word is a country.\n")
+                else:
+                    print("\nHint: The word is a sport.\n")
+
+        # Run out of guesses, game over.
+        if guesses == 0:
+            print(f"\nBad luck, You have run out of guesses. The word was {random_word}.")
+            restart()
+            break
 
 # Starting menu
 file_name = "rules.txt"
