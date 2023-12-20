@@ -26,6 +26,7 @@ def game_start():
     print(f"\nGame has started, begin Guessing!! Your word is {word_length} letters long.\n")
     users_guess = ""
     guesses = 7
+    set_of_guesses = set()
 
     # print correctly guessed characters
     while guesses > 0:
@@ -44,6 +45,7 @@ def game_start():
                     if start_again == "Y":
                         game_start()
                     elif start_again == "N":
+                        print(f"Thanks for playing {name}! Come back soon!")
                         quit()
                     else:
                         print("\nInvalid Input. Back to main menu.")
@@ -58,6 +60,14 @@ def game_start():
 
         # User input for guess
         guess = input("\n\nEnter a letter: ").lower()
+
+        # Guess history
+        if guess in set_of_guesses:
+            print("\nYou have already guessed this letter.")
+            print(f"\nGuesses so far: {set_of_guesses}")
+        else:
+            set_of_guesses.add(guess)
+            print(f"\nGuesses so far: {set_of_guesses}")
 
         # Make sure guess is 1 only character long and in the english alphabet.
         if len(guess) != 1 or not guess.isalpha():
@@ -92,24 +102,19 @@ def game_start():
 # Starting menu
 file_name = "rules.txt"
 users_choice = ""
-while users_choice != "5":
+while users_choice != "4":
     users_choice = create_menu()
     if (users_choice == "1"):
         game_start()
     elif (users_choice == "2"):
         view_wordlist()
-    elif (users_choice == "3"):
-        print("view previous scores")
-    elif(users_choice == "4"):
+    elif(users_choice == "3"):
         view_rules(file_name)
-    elif (users_choice == "5"):
+    elif (users_choice == "4"):
         print("See you next time!")
         quit()
     else:
-        print("Not a valid Input, Please enter a value between 1-5.\n")
+        print("Not a valid Input, Please enter a value between 1-4.\n")
 
 while True:
     game_start()
-    play_again = input("Would you like to play again? Y/N: ").upper()
-    if play_again == "N":
-        print(f"Thanks {name} for playing! Goodbye!")

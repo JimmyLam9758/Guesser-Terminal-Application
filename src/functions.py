@@ -5,9 +5,8 @@ from words_list import animals, foods, countries, sports
 def create_menu():
     print("\n1. Enter 1 start game")
     print("2. Enter 2 to view list of words")
-    print("3. Enter 3 to view previous scores")
-    print("4. Enter 4 to see how to play")
-    print("5. Enter 5 to exit\n")
+    print("3. Enter 3 to see how to play")
+    print("4. Enter 4 to exit\n")
     choice = input("Enter your selection: ")
     return choice
 
