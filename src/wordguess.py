@@ -1,7 +1,7 @@
 # importing modules and functions from other files
 import random
 from words_list import animals, foods, countries, sports
-from functions import create_menu, view_wordlist
+from functions import create_menu, view_wordlist, view_rules
 
 # choosing a randon word from our list and getting its length
 words = animals + countries + foods + sports
@@ -75,8 +75,9 @@ def game_start():
                 print(f"\nBad luck, You have run out of guesses. The word was {random_word}.")
 
 # Starting menu
+file_name = "rules.txt"
 users_choice = ""
-while users_choice != "4":
+while users_choice != "5":
     users_choice = create_menu()
     if (users_choice == "1"):
         game_start()
@@ -84,9 +85,11 @@ while users_choice != "4":
         view_wordlist()
     elif (users_choice == "3"):
         print("view previous scores")
-    elif (users_choice == "4"):
+    elif(users_choice == "4"):
+        view_rules(file_name)
+    elif (users_choice == "5"):
         continue
     else:
-        print("Not a valid Input, Please enter a value between 1-4.\n")
+        print("Not a valid Input, Please enter a value between 1-5.\n")
 
 print(f"\nThank you {name} for playing! Come back soon!")
