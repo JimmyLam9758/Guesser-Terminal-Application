@@ -1,7 +1,7 @@
 # importing modules and functions from other files
 import random
 from words_list import animals, foods, countries, sports
-from functions import create_menu, view_wordlist, view_rules
+from functions import create_menu, view_wordlist, view_rules, random_word_generator
 
 # Input for user to enter name and use user input for greeting
 while True:
@@ -20,12 +20,8 @@ while True:
 print(f"\nWelcome {name} to the word guessing game!!!")
 
 # Game start loop
-
 def game_start():
-    # choosing a randon word from our list and getting its length
-    words = animals + countries + foods + sports
-    random_word = random.choice(words)
-    word_length = len(random_word)
+    random_word, word_length = random_word_generator()
 
     print(f"\nGame has started, begin Guessing!! Your word is {word_length} letters long.\n")
     users_guess = ""
@@ -40,6 +36,7 @@ def game_start():
             else:
                 incorrect_guesses += 1
                 print("_", end = "")
+
         # restart function
         def restart():
                 while True:
@@ -85,10 +82,12 @@ def game_start():
                         print("\nHint: The word is a country.\n")
                     else:
                         print("\nHint: The word is a sport.\n")
+
             # Run out of guesses, game over.
             if guesses == 0:
                 print(f"\nBad luck, You have run out of guesses. The word was {random_word}.")
                 restart()
+                break
 
 # Starting menu
 file_name = "rules.txt"

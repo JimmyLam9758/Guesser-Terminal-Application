@@ -1,3 +1,4 @@
+import random
 from words_list import animals, foods, countries, sports
 
 # Function to create start menu
@@ -22,3 +23,10 @@ def view_rules(file_name):
         rules = f.read()
         print(rules)
     f.close()
+
+# Function to generate random word and it's length.
+def random_word_generator():
+    words = animals + countries + foods + sports
+    random_word = random.choice(words)
+    word_length = len(random_word)
+    return random_word, word_length
