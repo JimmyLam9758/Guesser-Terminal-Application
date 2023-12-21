@@ -69,19 +69,22 @@ def game_start():
 
         users_guess += guess
 
-        # Guess history
+        # Guess history function
+        def guess_history(guess, set_of_guesses, random_word, guesses):
         # if incorrect guess and not in guess history, lower total guess count, print remaining guesses.
-        if guess in set_of_guesses:
-            print("\nInvalid Input, You have already guessed this letter.")
-            print(f"Guess history: {set_of_guesses}")
-        else:
-            set_of_guesses.add(guess)
-            if guess in random_word:
-                print(f"\nGuess history: {set_of_guesses}")
+            if guess in set_of_guesses:
+                print("\nInvalid Input, You have already guessed this letter.")
+                print(f"Guess history: {set_of_guesses}")
             else:
-                guesses -= 1
-                print(f"\nIncorrect guess, You have {guesses} wrong guesses left.")
-                print(f"Guesses history: {set_of_guesses}")                
+                set_of_guesses.add(guess)
+                if guess in random_word:
+                    print(f"\nGuess history: {set_of_guesses}")
+                else:
+                    guesses -= 1
+                    print(f"\nIncorrect guess, You have {guesses} wrong guesses left.")
+                    print(f"Guesses history: {set_of_guesses}")
+            return guesses
+        guesses = guess_history(guess, set_of_guesses, random_word, guesses)   
 
         # At certain amount of guesses print hint
         if guesses == 4:
