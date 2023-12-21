@@ -54,6 +54,7 @@ def game_start():
         # Print if word was guessed
         if incorrect_guesses == 0:
             print(f"\n\nCongratulations! You got it right with {guesses} guesses remaining. The word was {random_word}.\n")
+
             # play again option if word was guessed
             restart()
             break
