@@ -1,7 +1,6 @@
 # importing modules and functions from other files
 import random
 import string
-import datetime
 from colored import fg, attr, bg
 from words_list import animals, foods, countries, sports
 from functions import create_menu, view_wordlist, view_rules, random_word_generator
