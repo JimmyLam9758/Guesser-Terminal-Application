@@ -28,4 +28,8 @@ Tests for my word generator, first test passes and 2nd and 3rd test purposely fa
 
 ![word test](/docs/images/word_test.png)
 
+These are the test for my guess history, first and 2nd test should pass and 3rd test should purposely fail.
+
+![guess test](docs/images/guess_test.png)
+
 ## Project Management

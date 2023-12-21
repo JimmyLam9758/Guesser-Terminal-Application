@@ -84,6 +84,7 @@ def game_start():
                     print(f"\nIncorrect guess, You have {guesses} wrong guesses left.")
                     print(f"Guesses history: {set_of_guesses}")
             return guesses
+        # update and run function
         guesses = guess_history(guess, set_of_guesses, random_word, guesses)   
 
         # At certain amount of guesses print hint
