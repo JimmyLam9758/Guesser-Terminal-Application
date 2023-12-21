@@ -1,29 +1,32 @@
 # importing modules and functions from other files
 import random
+import string
+import datetime
+from colored import fg, attr, bg
 from words_list import animals, foods, countries, sports
 from functions import create_menu, view_wordlist, view_rules, random_word_generator
 
 # Input for user to enter name and use user input for greeting
 while True:
     try:    
-        name = input("Please enter your first name: ").title()
+        name = input(f"{fg('light_yellow')}Please enter your first name: {attr('reset')}").title()
 
         if name.isalpha():
             break
         else:
-            print("\nPlease enter a valid name. No numbers, spaces or special characters.\n")
+            print(f"\n{fg('red')}Please enter a valid name. No numbers, spaces or special characters.{attr('reset')}\n")
 
     except KeyboardInterrupt:
         print("\nInput has been interrupted, Exiting ")
         break
 
-print(f"\nWelcome {name} to the word guessing game!!!")
+print(f"\n{fg('light_yellow')}Welcome {name} to the word guessing game!!!{attr('reset')}")
 
 # Game start loop
 def game_start():
     random_word, word_length = random_word_generator()
 
-    print(f"\nGame has started, begin Guessing!! Your word is {word_length} letters long.\n")
+    print(f"\n{fg('green')}Game has started, begin Guessing!! Your word is {word_length} letters long.{attr('reset')}\n")
     users_guess = ""
     guesses = 7
     set_of_guesses = set()
@@ -33,38 +36,41 @@ def game_start():
         incorrect_guesses = 0
         for str in random_word:
             if str in users_guess:
-                print(str, end = "")
+                print(f"{fg('green')}{str}{attr('reset')}", end = "")
             else:
                 incorrect_guesses += 1
-                print("_", end = "")
+                print(f"{fg('sandy_brown')}_{attr('reset')}", end = "")
 
         # restart function
         def restart():
                 while True:
-                    start_again = input("\nWould you like to play again? Y/N: ").upper()
+                    start_again = input(f"\n{fg('honeydew_2')}Would you like to play again? Y/N: {attr('reset')}").upper()
                     if start_again == "Y":
                         game_start()
                     elif start_again == "N":
-                        print(f"\nThanks for playing {name}! Come back soon!")
+                        print(f"\n{fg('honeydew_2')}Thanks for playing {name}! Come back soon!{attr('reset')}")
                         quit()
                     else:
-                        print("\nInvalid Input. Back to main menu.")
+                        print(f"\n{fg('red')}Invalid Input. Back to main menu.{attr('reset')}")
                         return
 
         # Print if word was guessed
         if incorrect_guesses == 0:
-            print(f"\n\nCongratulations! You got it right with {guesses} guesses remaining. The word was {random_word}.\n")
+            print(f"\n\n{fg('green')}Congratulations! You got it right with {guesses} guesses remaining. The word was {random_word}.{attr('reset')}\n")
 
             # play again option if word was guessed
             restart()
             break
 
         # User input for guess
-        guess = input("\n\nEnter a letter: ").lower()
-
+        guess = input(f"\n\n{fg('light_yellow')}Enter a letter: {attr('reset')}").lower()
+        # users can quit game at any time by typing exit
+        if guess == "exit":
+            print(f"{fg('honeydew_2')}Thank you for playing! See you again next time.{attr('reset')}")
+            quit()
         # Make sure guess is 1 only character long and in the english alphabet.
         if len(guess) != 1 or not guess.isalpha():
-            print("\nInvalid Input. Please enter a single letter.")
+            print(f"\n{fg('red')}Invalid Input. Please enter a single letter.{attr('reset')}")
             continue
 
         users_guess += guess
@@ -73,16 +79,16 @@ def game_start():
         def guess_history(guess, set_of_guesses, random_word, guesses):
         # if incorrect guess and not in guess history, lower total guess count, print remaining guesses.
             if guess in set_of_guesses:
-                print("\nInvalid Input, You have already guessed this letter.")
-                print(f"Guess history: {set_of_guesses}")
+                print(f"\n{fg('red')}Invalid Input, You have already guessed this letter.{attr('reset')}")
+                print(f"{fg('pink_1')}Guess history: {set_of_guesses}{attr('reset')}")
             else:
                 set_of_guesses.add(guess)
                 if guess in random_word:
-                    print(f"\nGuess history: {set_of_guesses}")
+                    print(f"\n{fg('pink_1')}Guess history: {set_of_guesses}{attr('reset')}")
                 else:
                     guesses -= 1
-                    print(f"\nIncorrect guess, You have {guesses} wrong guesses left.")
-                    print(f"Guesses history: {set_of_guesses}")
+                    print(f"\n{fg('light_red')}Incorrect guess, You have {guesses} wrong guesses left.{attr('reset')}")
+                    print(f"{fg('pink_1')}Guesses history: {set_of_guesses}{attr('reset')}")
             return guesses
         # update and run function
         guesses = guess_history(guess, set_of_guesses, random_word, guesses)   
@@ -90,17 +96,17 @@ def game_start():
         # At certain amount of guesses print hint
         if guesses == 4:
                 if random_word in animals:
-                    print("\nHint: The word is an animal.\n")
+                    print(f"\n{fg('green')}Hint: The word is an animal.{attr('reset')}\n")
                 elif random_word in foods:
-                    print("\nHint: The word is a food item.\n")
+                    print(f"\n{fg('green')}Hint: The word is a food item.{attr('reset')}\n")
                 elif random_word in countries:
-                    print("\nHint: The word is a country.\n")
+                    print(f"\n{fg('green')}Hint: The word is a country.{attr('reset')}\n")
                 else:
-                    print("\nHint: The word is a sport.\n")
+                    print(f"\n{fg('green')}Hint: The word is a sport.{attr('reset')}\n")
 
         # Run out of guesses, game over.
         if guesses == 0:
-            print(f"\nBad luck, You have run out of guesses. The word was {random_word}.")
+            print(f"\n{fg('red')}Bad luck, You have run out of guesses. The word was {random_word}.{attr('reset')}")
             restart()
             break
 
@@ -116,10 +122,10 @@ while users_choice != "4":
     elif(users_choice == "3"):
         view_rules(file_name)
     elif (users_choice == "4"):
-        print("See you next time!")
+        print(f"{fg('honeydew_2')}See you next time!{attr('reset')}")
         quit()
     else:
-        print("Not a valid Input, Please enter a value between 1-4.\n")
+        print(f"{fg('red')}Not a valid Input, Please enter a value between 1-4.{attr('reset')}\n")
 
 while True:
     game_start()

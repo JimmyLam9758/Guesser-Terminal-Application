@@ -1,7 +1,7 @@
                                                                How to play!                                                               
 Once you enter '1', the game will begin. Once the game begins a random word will be randomly generated from a predetermined pool of words.
-The length of the word will be given to you and you may begin inputting single letters to guess the word. Whenever you make a guess and 
-the letter is in the word, the blank space hiding the word will be filled in. Whenever an incorrect guess is made, your total remaining 
-guesses will lower by 1. You will have a total of 7 incorrect guesses before you lose and the game is over. If you are having difficulties 
-guessing the word, after a certain amount of incorrect guesses a hint will be revealed. Repeat the process of guessing letters until all
-letters in the hidden word has been revealed. Once all letters are revealed then you have won!!
+The length of the word will be given to you and you may begin inputting single letters to guess the word. Inputting 'exit' will exit the program
+Whenever you make a guess and the letter is in the word, the blank space hiding the word will be filled in. Whenever an incorrect guess is made, 
+your total remaining guesses will lower by 1. You will have a total of 7 incorrect guesses before you lose and the game is over. If you are having 
+difficulties guessing the word, after a certain amount of incorrect guesses a hint will be revealed. Repeat the process of guessing letters until 
+all letters in the hidden word has been revealed. Once all letters are revealed then you have won!!
