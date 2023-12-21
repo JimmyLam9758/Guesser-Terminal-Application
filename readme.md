@@ -10,15 +10,11 @@
 
 ## Overview
 
-hello
+This is my terminal application, I have made a word guessing game, similar to hangman or wordle. The code mainly follows the PEP8 Coding style guide. I have only used 4 spaces per indentation level, all my imports are on separate lines and are put at the top of each file and after modules. All my variables are named in lower case and seperated by underscores. Makes some use of white spaces. Most if not all my variables and functions have comments. Some of the features that will be included within my application are, a random word generator which generates a random word from a pool of words that have been categorised. Another feature is an input which outputs the users name within the greeting and farewell. One more feature is the hint feature, at the start of the game it displays how many letters in the random word and after a certain amount of incorrect guesses a hint describing the word's category will be revealed.
 
-## Styling
-
-## List of Features
+[PEP8 Styling Guide](https://peps.python.org/pep-0008/)
 
 ## Implentation Plan
-
-## Instructions on how to run program
 
 ## Tests
 
@@ -33,3 +29,5 @@ These are the test for my guess history, first and 2nd test should pass and 3rd 
 ![guess test](docs/images/guess_test.png)
 
 ## Project Management
+
+## Instructions on how to run program
