@@ -6,7 +6,7 @@
 
 ## Link to my recording
 
-[My Recording](http://youtube.com)
+[My Recording](https://www.youtube.com/watch?v=VoQ7IVq4I_U)
 
 ## Overview
 
